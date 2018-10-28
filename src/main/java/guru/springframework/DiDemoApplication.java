@@ -1,10 +1,12 @@
 package guru.springframework;
 
-import guru.springframework.controllers.MyController;
-import guru.springframework.examplebeans.FakeDataSource;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
+
+import guru.springframework.controllers.MyController;
+import guru.springframework.examplebeans.FakeDataSource;
+import guru.springframework.examplebeans.FakeJMSBroker;
 
 @SpringBootApplication
 public class DiDemoApplication {
@@ -17,5 +19,9 @@ public class DiDemoApplication {
 		FakeDataSource fakeDataSource = (FakeDataSource) ctx.getBean(FakeDataSource.class);
 
 		System.out.println(fakeDataSource.getUser());
+
+		FakeJMSBroker fakeJMSBroker = (FakeJMSBroker) ctx.getBean(FakeJMSBroker.class);
+
+		System.out.println(fakeJMSBroker.getUser());
 	}
 }
